@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Motor AR Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+</head>
+
+<body style="margin:0; overflow:hidden;">
+
+<a-scene embedded vr-mode-ui="enabled:false">
+  <a-camera position="0 1.6 0"></a-camera>
+
+  <!-- MOTOR PLACEHOLDER -->
+  <a-box
+    id="motor"
+    width="1.2"
+    height="0.6"
+    depth="2.2"
+    position="0 0 -1.5"
+    color="red"
+    visible="false">
+  </a-box>
+</a-scene>
+
+<!-- UI -->
+<div style="
+  position:fixed;
+  bottom:10px;
+  left:10px;
+  background:#000000aa;
+  padding:10px;
+  border-radius:10px;
+  z-index:10;
+">
+  <button onclick="placeMotor()">PLACE</button>
+  <button onclick="setColor('red')">RED</button>
+  <button onclick="setColor('white')">WHITE</button>
+  <button onclick="setColor('silver')">SILVER</button>
+</div>
+
+<script>
+  const motor = document.querySelector('#motor');
+
+  function placeMotor() {
+    motor.setAttribute('visible', 'true');
+  }
+
+  function setColor(color) {
+    motor.setAttribute('color', color);
+  }
+</script>
+
+</body>
+</html>
